@@ -4,7 +4,11 @@ package com.example.user.travellog.Entry;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Route {
+import java.io.Serializable;
+
+import jp.co.yahoo.android.maps.GeoPoint;
+
+public class Route implements Serializable{
 
     /**
      * 
@@ -21,6 +25,12 @@ public class Route {
     @Expose
     private Double longitude;
 
+
+    public Route(String transitTime, GeoPoint location){
+        this.transitTime = transitTime;
+        this.latitude = location.getLatitude();
+        this.longitude = location.getLongitude();
+    }
     /**
      * 
      * Corresponds to the "transit_time" property.
@@ -79,4 +89,7 @@ public class Route {
         this.longitude = longitude;
     }
 
+    public GeoPoint toGeoPoint(){
+        return new GeoPoint((int)(latitude * 1E6), (int)(longitude * 1E6));
+    }
 }

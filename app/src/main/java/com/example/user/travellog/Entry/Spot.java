@@ -1,10 +1,15 @@
 
 package com.example.user.travellog.Entry;
 
+import com.example.user.travellog.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Spot {
+import java.io.Serializable;
+
+import jp.co.yahoo.android.maps.GeoPoint;
+
+public class Spot implements Serializable{
 
     /**
      * 
@@ -44,6 +49,22 @@ public class Spot {
     @SerializedName("stay_minute")
     @Expose
     private Integer stayMinute;
+    /**
+     *
+     * Corresponds to the "site_url" property.
+     *
+     */
+    @SerializedName("spot_code")
+    @Expose
+    private String spotCode;
+    /**
+     *
+     * Corresponds to the "site_url" property.
+     *
+     */
+    @SerializedName("category_code")
+    @Expose
+    private String categoryCode;
 
     /**
      * 
@@ -169,4 +190,43 @@ public class Spot {
         this.stayMinute = stayMinute;
     }
 
+    public String getSpotCode() {
+        return spotCode;
+    }
+
+    public void setSpotCode(String spotCode) {
+        this.spotCode = spotCode;
+    }
+
+    public String getCategoryCode() {
+        return categoryCode;
+    }
+
+    public void setCategoryCode(String categoryCode) {
+        this.categoryCode = categoryCode;
+    }
+
+    public GeoPoint toGeoPoint(){
+        return new GeoPoint((int)(latitude * 1E6), (int)(longitude * 1E6));
+    }
+
+
+    public int getIcon(){
+        String code = categoryCode;
+        if(categoryCode.length() != 2) code =  code.substring(0,2);
+        if(code.equals("01")) {
+            return 1;
+        } else
+        if (code.equals("02")){
+            return 2;
+        } else
+        if (code.equals("03")){
+            return 3;
+        } else
+        if (code.equals("04")){
+            return 4;
+        } else {
+            return 5;
+        }
+    }
 }

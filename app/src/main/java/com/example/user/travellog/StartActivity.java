@@ -17,25 +17,25 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button btn = (Button) findViewById(R.id.StartButton);
-        btn.setOnClickListener(btnListener);//リスナの登録
-
-        btn  = (Button) findViewById(R.id.StopButton);
-        btn.setOnClickListener(btnListener);//リスナの登録
+//        Button btn = (Button) findViewById(R.id.StartButton);
+//        btn.setOnClickListener(btnListener);//リスナの登録
+//
+//        btn  = (Button) findViewById(R.id.StopButton);
+//        btn.setOnClickListener(btnListener);//リスナの登録
     }
 
     private OnClickListener btnListener = new OnClickListener() {
         public void onClick(View v) {
 
-            switch(v.getId()){
-
-                case R.id.StartButton://startServiceでサービスを起動
-                    startService(new Intent(StartActivity.this, MyService.class));
-                    break;
-                case R.id.StopButton://stopServiceでサービスの終了
-                    stopService(new Intent(StartActivity.this, MyService.class));
-                    break;
-            }
+//            switch(v.getId()){
+//
+////                case R.id.StartButton://startServiceでサービスを起動
+//                    startService(new Intent(StartActivity.this, MyService.class));
+//                    break;
+//                case R.id.StopButton://stopServiceでサービスの終了
+//                    stopService(new Intent(StartActivity.this, MyService.class));
+//                    break;
+//            }
         }
     };
 }

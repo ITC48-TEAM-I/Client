@@ -1,11 +1,14 @@
 
 package com.example.user.travellog.Entry;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Travel {
+import jp.co.yahoo.android.maps.GeoPoint;
+
+public class Travel implements Serializable{
 
     /**
      * 
@@ -212,4 +215,7 @@ public class Travel {
         this.spots = spots;
     }
 
+    public GeoPoint toGeoPoint(){
+        return new GeoPoint((int)(latitude * 1E6), (int)(longitude * 1E6));
+    }
 }

@@ -28,4 +28,5 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:latest.release'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.android.support:percent:23.0.0'
 }

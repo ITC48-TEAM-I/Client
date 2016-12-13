@@ -28,20 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://localhost:8000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        TravelApiService travelApiService = retrofit.create(TravelApiService.class);
-        Call<List<Travel>> call = travelApiService.getTravel("abcd");
-        try {
-            List<Travel> travels = call.execute().body();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//        Intent intent = new Intent(MainActivity.this, MapTestActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, TravelListActivity.class);
+        startActivity(intent);
     }
 }
